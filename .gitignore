@@ -1,0 +1,3 @@
+**/*.env
+**/*.xlsx
+notebooks/.ipynb_checkpoints/*
