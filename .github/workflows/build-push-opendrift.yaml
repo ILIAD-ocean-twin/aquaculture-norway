@@ -3,8 +3,8 @@ on:
   push:
     branches:
       - master
-    # paths:
-    #   - 'opendrift/**'
+    paths:
+      - 'opendrift/**'
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ILIAD-ocean-twin/aquaculture-norway-opendrift
