@@ -1,5 +1,7 @@
 # ILIAD Aquaculture
 
+![Frontend screenshot](screenshots/streamlit.png?raw=true)
+
 This repository contains the source code of the Norwegian ILIAD aquaculture pilot.
 
 The pilot is meant to be deployed on the [EDITO Datalab](https://datalab.dive.edito.eu) platform.
