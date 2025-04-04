@@ -2,6 +2,8 @@
 
 ![Frontend screenshot](screenshots/streamlit.png?raw=true)
 
+[![Code style: black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black)
+
 This repository contains the source code of the Norwegian ILIAD aquaculture pilot.
 
 The pilot is meant to be deployed on the [EDITO Datalab](https://datalab.dive.edito.eu) platform.
