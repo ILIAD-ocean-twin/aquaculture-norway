@@ -1,0 +1,43 @@
+name: Build and Push Docker Image for Aquaculture Pilot (Streamlit)
+on:
+  push:
+    branches:
+      - master
+    # paths:
+    #   - 'streamlit/**'
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ILIAD-ocean-twin/aquaculture-norway-streamlit
+jobs:
+  build-and-push-backend-image:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Log in to the Container registry
+      uses: docker/login-action@v3
+      with:
+        registry: ${{ env.REGISTRY }}
+        username: ${{ github.actor }}
+        password: ${{ secrets.GITHUB_TOKEN }}
+    - name: Extract metadata (tags, labels) for main image
+      id: meta-main
+      uses: docker/metadata-action@v5
+      with:
+        images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+        tags: |
+          type=schedule
+          type=ref,event=branch
+          type=ref,event=tag
+          type=ref,event=pr
+          type=sha
+    - name: Build and push Docker main image
+      uses: docker/build-push-action@v6
+      with:
+        context: streamlit
+        push: true
+        tags: ${{ steps.meta-main.outputs.tags }}
+        labels: ${{ steps.meta-main.outputs.labels }}
