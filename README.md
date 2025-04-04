@@ -1,4 +1,4 @@
-# ILIAD Aquaculture
+# Norwegian ILIAD Aquaculture Pilot
 
 ![Frontend screenshot](screenshots/streamlit.png?raw=true)
 
